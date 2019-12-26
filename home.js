@@ -183,4 +183,35 @@ console.log(student.studentInfo());
 
 /*
  * Chapter 10 If statement
+ * Conditionals, Control flows (if else)
  */
+let age = console.log('What is your age?');
+
+if ((age >= 18) && (age <= 35)) {
+    status = 'target domo';
+} else {
+    status = 'not my audience';
+}
+console.log(status);
+
+// Switch statement 
+// diffenetiate between weekday vs. weekend
+// day 0 --> Sunday
+// day 6 --> Saturday --> weekend
+// day 4 --> Thursday --> weekday
+
+switch (6) {
+    case 0:
+        text = 'weekend';
+        break;
+    case 5:
+        text = 'weekend';
+        break;
+    case 6:
+        text = 'weekend';
+        break;
+    default:
+        text = 'weekday';
+}
+
+console.log(text);
