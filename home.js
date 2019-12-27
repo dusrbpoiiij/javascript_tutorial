@@ -215,3 +215,5 @@ switch (6) {
 }
 
 console.log(text);
+
+console.log("ddf");
