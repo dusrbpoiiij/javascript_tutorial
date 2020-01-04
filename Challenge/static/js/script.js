@@ -95,3 +95,59 @@ function rpsFrontEnd(humanImageChoice, botImageChoice, finalMessage) {
     document.getElementById('flex-box-rps-div').appendChild(messageDiv);
     document.getElementById('flex-box-rps-div').appendChild(botDiv);
 }   
+
+
+// Challenge 4 : Change the Color of All Buttons
+var all_buttons = document.getElementsByTagName('button');  // All of the Buttons
+
+var copyAllButtons = [];
+ // duplicate the original buttons classList[1] for reset
+for (let i=0; i<all_buttons.length; i++) {
+    copyAllButtons.push(all_buttons[i].classList[1]);
+}
+
+// 같은 값을 선택한 경우 동작하지 않음. onchange니까.  이를 해결할 방법은 ??
+function buttonColorChange(buttonThingy) {
+
+    if(buttonThingy.value === 'red') {
+        buttonsRed();
+    } else if (buttonThingy.value === 'green') {
+        buttonsGreen();
+    } else if (buttonThingy.value === 'reset') {
+        buttonColorReset();
+    } else if (buttonThingy.value === 'random') {
+        randomColors();
+    } 
+
+}
+
+function buttonsRed() {
+    for (let i=0; i<all_buttons.length; i++) {
+        all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+        all_buttons[i].classList.add('btn-danger');
+    }
+}
+
+function buttonsGreen() {
+    for (let i=0; i<all_buttons.length; i++) {
+        all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+        all_buttons[i].classList.add('btn-success');
+    }
+}
+
+function buttonColorReset() {
+    for (let i=0; i<all_buttons.length; i++) {
+        all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+        all_buttons[i].classList.add(copyAllButtons[i]);
+    }
+}
+
+function randomColors() {
+    var choices = ['btn-primary', 'btn-danger', 'btn-warning','btn-success'];
+    
+    for (let i=0; i<all_buttons.length; i++) {
+        var randomNumber = Math.floor(Math.random()*4);  // Random Number
+        all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+        all_buttons[i].classList.add(choices[randomNumber]);
+    }
+}
